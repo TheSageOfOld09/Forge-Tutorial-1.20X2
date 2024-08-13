@@ -1,6 +1,8 @@
 package net.joshuad.trail_run_1;
 
 import com.mojang.logging.LogUtils;
+import net.joshuad.trail_run_1.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -22,6 +24,8 @@ public class Trial_Run_1 {
     public Trial_Run_1() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -35,7 +39,9 @@ public class Trial_Run_1 {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.RUBY);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
