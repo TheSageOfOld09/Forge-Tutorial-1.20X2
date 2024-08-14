@@ -1,3 +1,9 @@
 {
-  "item.trial_run_1.ruby": "Ruby"
+  "item.trial_run_1.ruby": "Ruby",
+  "item.trial_run_1.aquamarine": "Aquamarine",
+
+  "block.trial_run_1.ruby_block": "Block of Ruby",
+  "block.trial_run_1.aquamarine_block": "Block of Aquamarine",
+
+  "creativetab.ores_extended": "Ores Extended"
 }

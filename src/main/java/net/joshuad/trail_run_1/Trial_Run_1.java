@@ -1,6 +1,8 @@
 package net.joshuad.trail_run_1;
 
+import block.ModBlocks;
 import com.mojang.logging.LogUtils;
+import net.joshuad.trail_run_1.item.ModCreativeModeTabs;
 import net.joshuad.trail_run_1.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -24,7 +26,10 @@ public class Trial_Run_1 {
     public Trial_Run_1() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -41,6 +46,7 @@ public class Trial_Run_1 {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.RUBY);
+            event.accept(ModItems.AQUAMARINE);
         }
     }
 

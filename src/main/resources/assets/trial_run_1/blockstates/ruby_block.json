@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "trial_run_1:block/ruby_block"
+    }
+  }
+}
